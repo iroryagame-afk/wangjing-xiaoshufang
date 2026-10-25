@@ -78,3 +78,18 @@ body{display:flex;flex-direction:column;min-height:100vh}main{flex:1}.ph+section
 .pill{display:inline-block;background:var(--o2);color:#a5600f;border-radius:999px;padding:2px 10px;font-size:13px;margin:3px 4px 3px 0}
 .gamebox{margin-top:14px;padding:12px 14px;border-radius:12px;background:var(--g2);font-size:14px;color:var(--g)}
 .menu .top{white-space:nowrap}.menu{gap:0}
+.hd .drawer .w{display:block;height:auto}.menu .grp>a.top{display:flex;align-items:center;gap:2px}.drawer .mi{padding:8px 6px}
+.c.ex{cursor:pointer;transition:.2s}.c.ex:hover{transform:translateY(-3px);box-shadow:0 10px 26px #0000001a;border-color:var(--g)}.c.ex:active{transform:scale(.99)}.c.ex:focus-visible{outline:3px solid var(--o)}
+.chip{border:0;cursor:pointer;font:inherit;font-size:13px}.chip:hover{background:var(--o);color:#fff}
+.mask{position:fixed;inset:0;background:rgba(30,40,34,.5);z-index:100;display:flex;align-items:flex-end;justify-content:center}.mask[hidden]{display:none}
+.sheet{background:#fff;width:100%;max-height:88vh;overflow:auto;border-radius:22px 22px 0 0;padding:26px 20px 22px;position:relative;animation:up .25s}
+.sheet h3{font-size:20px;padding-right:36px}.x{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;border:0;background:var(--cream2);font-size:22px;cursor:pointer}
+.daily{margin:14px 0;padding:12px 14px;background:var(--g2);border-radius:12px;color:var(--g);font-size:14px}
+.sheet .map .tile{cursor:default}.pop{position:absolute;z-index:120;max-width:260px;background:var(--t);color:#fff;font-size:13px;padding:8px 12px;border-radius:10px;box-shadow:0 6px 18px #0003}
+@keyframes up{from{transform:translateY(40px);opacity:0}}
+@media(min-width:820px){.mask{align-items:center}.sheet{max-width:520px;border-radius:22px}}
+/* mobile nav hard fix */
+@media(max-width:899px){.hd .menu,.btn.book{display:none!important}.burger{display:block!important}.hd .drawer{display:none}.hd .drawer.open{display:block}.hd .drawer .w{display:block!important;height:auto}.drawer .mega{display:none}}
+@media(min-width:900px){.burger,.hd .drawer,.hd .drawer.open{display:none!important}.hd .menu{display:flex!important}.btn.book{display:inline-flex}}
+@media(hover:none){.menu .grp:hover .mega{display:none}}
+.menu .top,.mi b,.dtop,.acc summary{white-space:nowrap}

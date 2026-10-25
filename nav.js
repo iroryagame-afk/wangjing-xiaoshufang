@@ -23,3 +23,5 @@ var ft=document.getElementById('foot');
 if(ft){var cols=M.slice(1,5).map(function(m){return '<div><h4>'+m[0]+'</h4>'+m[2].map(function(x){return '<a href="'+x[0]+'">'+x[2]+'</a>'}).join('')+'</div>'}).join('');
 ft.outerHTML='<footer class="ft"><div class="w"><div class="cols"><div><a class="logo" href="index.html" style="color:#fff">'+ic('book')+'望京小书房</a><p style="margin-top:10px">望京社区民居里的课后托管。阅读陪伴 · 体能带练 · 作业看护。</p><p style="margin-top:8px">地址：望京 XX 小区 X 号楼 <i class="tag">示例</i><br>电话 / 微信：示例</p></div>'+cols+'</div><div class="bot">© 望京小书房（品牌名示例）· Demo 网站 · <a href="about.html" style="display:inline">关于我们 · 方法来源</a></div></div></footer><div class="fab"><a class="btn" href="join.html">预约免费试听</a></div>';}
 })();
+if(location.hash=="#qa-m"){document.querySelector('.drawer').classList.add('open');}
+if(location.hash=='#qa-d'){var g=document.querySelectorAll('.menu .grp')[1];g.querySelector('.mega').style.display='block';}
