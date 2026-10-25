@@ -94,3 +94,5 @@ body{display:flex;flex-direction:column;min-height:100vh}main{flex:1}.ph+section
 @media(hover:none){.menu .grp:hover .mega{display:none}}
 .menu .top,.mi b,.dtop,.acc summary{white-space:nowrap}
 .drawer a.mi{display:flex;background:none;margin:0;padding:8px 4px;border-radius:10px}.drawer a.dtop{display:block;background:none;border-radius:0;margin:0;padding:12px 4px;font-size:16px}.drawer a.btn{display:flex;background:var(--o);color:#fff;margin:16px 0 0;padding:13px;border-radius:999px;font-size:16px}.acc summary{font-weight:600;font-size:16px}
+.fab{bottom:calc(10px + env(safe-area-inset-bottom));transform:translateY(140%);opacity:0;transition:.25s;pointer-events:none}.fab.show{transform:none;opacity:1;pointer-events:auto}.fab .btn{padding:10px 18px;font-size:15px;box-shadow:0 6px 18px rgba(0,0,0,.18)}
+@media(max-width:899px){body{padding-bottom:calc(60px + env(safe-area-inset-bottom))}}@media(min-width:900px){.fab{display:none}}

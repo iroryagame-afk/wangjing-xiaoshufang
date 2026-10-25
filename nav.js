@@ -25,3 +25,9 @@ ft.outerHTML='<footer class="ft"><div class="w"><div class="cols"><div><a class=
 })();
 if(location.hash=="#qa-m"){document.querySelector('.drawer').classList.add('open');}
 if(location.hash=='#qa-d'){var g=document.querySelectorAll('.menu .grp')[1];g.querySelector('.mega').style.display='block';}
+(function(){var fab=document.querySelector('.fab');if(!fab)return;
+var hero=document.querySelector('.hero,.ph'),own=[].slice.call(document.querySelectorAll('.cta,form,.price'));
+var past=!hero,ownIn=0;function u(){fab.classList.toggle('show',past&&ownIn==0)}
+if(!('IntersectionObserver' in window)){past=true;u();return}
+if(hero)new IntersectionObserver(function(e){past=!e[0].isIntersecting;u()}).observe(hero);
+var o=new IntersectionObserver(function(es){es.forEach(function(e){e.target._in=e.isIntersecting});ownIn=own.filter(function(x){return x._in}).length;u()});own.forEach(function(x){o.observe(x)});u();})();
