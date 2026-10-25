@@ -93,3 +93,4 @@ body{display:flex;flex-direction:column;min-height:100vh}main{flex:1}.ph+section
 @media(min-width:900px){.burger,.hd .drawer,.hd .drawer.open{display:none!important}.hd .menu{display:flex!important}.btn.book{display:inline-flex}}
 @media(hover:none){.menu .grp:hover .mega{display:none}}
 .menu .top,.mi b,.dtop,.acc summary{white-space:nowrap}
+.drawer a.mi{display:flex;background:none;margin:0;padding:8px 4px;border-radius:10px}.drawer a.dtop{display:block;background:none;border-radius:0;margin:0;padding:12px 4px;font-size:16px}.drawer a.btn{display:flex;background:var(--o);color:#fff;margin:16px 0 0;padding:13px;border-radius:999px;font-size:16px}.acc summary{font-weight:600;font-size:16px}
