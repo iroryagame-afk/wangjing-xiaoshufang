@@ -17,17 +17,16 @@ M.forEach(function(m){var on=cur(m)?' on':'';
  menu+='<div class="grp'+on+'"><a class="top" href="'+m[1]+'">'+m[0]+ic('down')+'</a><div class="mega">'+items+'</div></div>';
  dr+='<details class="acc'+on+'"'+(on?' open':'')+'><summary>'+m[0]+ic('down')+'</summary>'+items+'</details>';});
 var h=document.getElementById('nav');
-if(h)h.outerHTML='<header class="hd"><div class="w"><a class="logo" href="index.html">'+ic('book')+'望京小书房 <i class="tag">示例</i></a><nav class="menu">'+menu+'</nav><a class="btn sm book" href="join.html">预约试听</a><button class="burger" aria-label="菜单">'+ic('menu')+'</button></div><div class="drawer"><div class="w">'+dr+'<a class="btn full" href="join.html" style="margin-top:14px">预约免费试听</a></div></div></header>';
-var b=document.querySelector('.burger');if(b)b.onclick=function(){document.querySelector('.drawer').classList.toggle('open')};
+if(h)h.outerHTML='<header class="hd"><div class="w"><a class="logo" href="index.html">'+ic('book')+'望京小书房 <i class="tag">示例</i></a><nav class="menu">'+menu+'</nav><a class="btn sm book" href="join.html">预约试听</a><button class="burger" aria-label="菜单" aria-expanded="false">'+ic('menu')+'</button></div></header>';
+var dw=document.createElement('div');dw.className='mdrawer';dw.setAttribute('aria-hidden','true');dw.innerHTML='<div class="mdw">'+dr+'<a class="mbtn" href="join.html">预约免费试听</a></div>';document.body.appendChild(dw);document.documentElement.classList.add('nav-v5');
+var b=document.querySelector('.burger');if(b)b.onclick=function(){var o=dw.classList.toggle('open');b.setAttribute('aria-expanded',o);dw.setAttribute('aria-hidden',!o);document.body.classList.toggle('noscroll',o)};
 var ft=document.getElementById('foot');
 if(ft){var cols=M.slice(1,5).map(function(m){return '<div><h4>'+m[0]+'</h4>'+m[2].map(function(x){return '<a href="'+x[0]+'">'+x[2]+'</a>'}).join('')+'</div>'}).join('');
-ft.outerHTML='<footer class="ft"><div class="w"><div class="cols"><div><a class="logo" href="index.html" style="color:#fff">'+ic('book')+'望京小书房</a><p style="margin-top:10px">望京社区民居里的课后托管。阅读陪伴 · 体能带练 · 作业看护。</p><p style="margin-top:8px">地址：望京 XX 小区 X 号楼 <i class="tag">示例</i><br>电话 / 微信：示例</p></div>'+cols+'</div><div class="bot">© 望京小书房（品牌名示例）· Demo 网站 · <a href="about.html" style="display:inline">关于我们 · 方法来源</a></div></div></footer><div class="fab"><a class="btn" href="join.html">预约免费试听</a></div>';}
+ft.outerHTML='<footer class="ft"><div class="w"><div class="cols"><div><a class="logo" href="index.html" style="color:#fff">'+ic('book')+'望京小书房</a><p style="margin-top:10px">望京社区民居里的课后托管。阅读陪伴 · 体能带练 · 作业看护。</p><p style="margin-top:8px">地址：望京 XX 小区 X 号楼 <i class="tag">示例</i><br>电话 / 微信：示例</p></div>'+cols+'</div><div class="bot">© 望京小书房（品牌名示例）· Demo 网站 · <span style="opacity:.6">build 1792924646</span> · <a href="about.html" style="display:inline">关于我们 · 方法来源</a></div></div></footer><div class="fab"><a class="btn" href="join.html">预约免费试听</a></div>';}
 })();
-if(location.hash=="#qa-m"){document.querySelector('.drawer').classList.add('open');}
+
 if(location.hash=='#qa-d'){var g=document.querySelectorAll('.menu .grp')[1];g.querySelector('.mega').style.display='block';}
 (function(){var fab=document.querySelector('.fab');if(!fab)return;
 var hero=document.querySelector('.hero,.ph'),own=[].slice.call(document.querySelectorAll('.cta,form,.price'));
-var past=!hero,ownIn=0;function u(){fab.classList.toggle('show',past&&ownIn==0)}
-if(!('IntersectionObserver' in window)){past=true;u();return}
-if(hero)new IntersectionObserver(function(e){past=!e[0].isIntersecting;u()}).observe(hero);
-var o=new IntersectionObserver(function(es){es.forEach(function(e){e.target._in=e.isIntersecting});ownIn=own.filter(function(x){return x._in}).length;u()});own.forEach(function(x){o.observe(x)});u();})();
+function u(){var h=innerHeight,past=!hero||hero.getBoundingClientRect().bottom<60,ownIn=own.some(function(x){var r=x.getBoundingClientRect();return r.top<h&&r.bottom>0});fab.classList.toggle('show',past&&!ownIn)}
+addEventListener('scroll',u,{passive:true});addEventListener('resize',u);u();})();
