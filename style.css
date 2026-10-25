@@ -61,3 +61,4 @@ form{display:grid;gap:12px;max-width:560px}label{font-size:14px;color:var(--m)}i
  .mod{grid-template-columns:1fr 1.2fr;gap:56px}.mod.rev>:first-child{order:2}
  .booklist{columns:2;column-gap:40px}.ft .cols{grid-template-columns:2fr 1fr 1fr 1fr 1fr}
 }
+body{display:flex;flex-direction:column;min-height:100vh}main{flex:1}.ph+section{padding-top:48px}
